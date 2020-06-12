@@ -39,4 +39,12 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        if self.head is None:
+            return
+        if node.get_next() == None:
+            self.head = node
+            node.next = prev
+            return
+        next = node.next_node
+        node.next = prev
+        self.reverse_list(next,node)
